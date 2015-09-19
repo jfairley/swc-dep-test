@@ -1,3 +1,7 @@
+.git/
+.gradle/
+build/
+target/
 *.class
 
 # Mobile Tools for Java (J2ME)
