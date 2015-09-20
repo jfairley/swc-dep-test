@@ -17,8 +17,26 @@ See logs: [maven.log](maven.log)
 
 Using gradle 2.6
 
+With gradle it is very easy to specify the order that depedencies are resolved. Interestingly, I found that the order matters.
+
+Pulling from the same local repository, NimbusCommonLibs can be accessed successfully only when it is not the first .swc file.
+
+#### Failure:
 ```
-gradle build --debug
+rm -rf ~/.gradle/caches  ## clear downloaded artifacts
+gradle -b build.nimbusFirst.gradle build --debug --stacktrace
 ```
 
-See logs: [gradle.log](gradle.log)
+See logs:
+- [gradle.nimbusFirst.stdout.log](gradle.nimbusFirst.stdout.log)
+- [gradle.nimbusFirst.stderr.log](gradle.nimbusFirst.stderr.log)
+
+#### Success:
+```
+rm -rf ~/.gradle/caches  ## clear downloaded artifacts
+gradle -b build.nimbusLast.gradle build --debug --stacktrace
+```
+
+See logs:
+- [gradle.nimbusLast.stdout.log](gradle.nimbusLast.stdout.log)
+- [gradle.nimbusLast.stderr.log](gradle.nimbusLast.stderr.log)

@@ -3,7 +3,7 @@ apply plugin: 'maven'
 
 repositories {
     maven {
-        url 'http://levelsbeyond.artifactoryonline.com/levelsbeyond/maven-virtual'
+        url 'http://levelsbeyond.artifactoryonline.com/levelsbeyond/libs-releases-local'
         credentials {
             username artifactory_user
             password artifactory_password
@@ -12,5 +12,6 @@ repositories {
 }
 
 dependencies {
+    compile 'com.levelsbeyond.core:PlexCore:7.11.0@swc'
     compile 'com.levelsbeyond.nimbus.common.ui:NimbusCommonLibs:1.50.0@swc'
 }
